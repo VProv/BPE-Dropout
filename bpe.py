@@ -36,7 +36,7 @@ def tokenize_word(merge_rules, word, dropout=0.0,
                   sentinels=['^', '$'],
                   regime='begin',
                   bpe_symbol='`',
-                  always_merge_sentinels=False):
+                  always_merge_sentinels=True):
     """ Tokenize word using bpe merge rules
     :param merge_rules: dict [(a,b)] -> id, merge table, ids are in increasing order
     :param word: string

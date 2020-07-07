@@ -1,5 +1,5 @@
 # BPE-Dropout
-An official implementation of "BPE-Dropout: Simple and Effective Subword Regularization" algorithm.
+An official implementation of "BPE-Dropout" algorithm, introduced in (BPE-Dropout: Simple and Effective Subword Regularization)[https://www.aclweb.org/anthology/2020.acl-main.170/]
 
 ### Usage example
 ```
@@ -12,21 +12,21 @@ merge_table = load_merge_table(merge_table_path)
 tokenizer = BpeOnlineTokenizer(bpe_dropout_rate=0.1, merge_table=merge_table)
 
 for i in range(10):
-    print(tokenizer("Some example sentence to show segmentation"))
+    print(tokenizer("some example sentence to show segmentation"))
 ```
 
 Example output:
 ```
-S `ome example sentence t `o show seg `mentation
-S `ome example sentence to s `h `ow se `g `mentation
-S `ome example sen `t `ence to show seg `mentation
-S `o `me example sent `ence to sh `o `w seg `mentation
-S `o `me example sentence t `o show seg `mentation
-S `ome exam `ple sentence to show seg `men `tation
-S `ome ex `a `m `ple sentence to show se `g `mentation
-S `ome example sentence to show se `g `mentation
-S `ome example sentence to show seg `mentation
-S `ome example sentence to show seg `men `tation
+som `e exam `ple s `ent `ence to sh `ow s `eg `mentation
+so `me example sentence to show seg `men `tation
+some example sentence to show se `g `mentation
+some example sentence to show seg `mentation
+some example sentence to s `h `ow s `eg `mentation
+some ex `am `ple s `ent `ence to show seg `mentation
+s `ome example sentence to show s `eg `men `tation
+some example sent `ence to show se `g `mentation
+some example sen `ten `ce to show seg `mentation
+some example sentence to show s `eg `mentation
 ```
 
 ### Additional functions
