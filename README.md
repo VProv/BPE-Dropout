@@ -1,5 +1,5 @@
 # BPE-Dropout
-An official implementation of "BPE-Dropout" algorithm, introduced in (BPE-Dropout: Simple and Effective Subword Regularization)[https://www.aclweb.org/anthology/2020.acl-main.170/]
+An official implementation of "BPE-Dropout" algorithm, introduced in [BPE-Dropout: Simple and Effective Subword Regularization](https://www.aclweb.org/anthology/2020.acl-main.170/)
 
 ### Usage example
 ```
