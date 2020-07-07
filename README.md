@@ -1,7 +1,7 @@
 # BPE-Dropout
 An official implementation of "BPE-Dropout: Simple and Effective Subword Regularization" algorithm.
 
-Usage example:
+### Usage example:
 ```
 merge_table_path = './example/bpe.voc'
 
@@ -29,12 +29,13 @@ S `ome example sentence to show seg `mentation
 S `ome example sentence to show seg `men `tation
 ```
 
-There are also additional functions in bpe.py: 
+### Additional functions
 
-load_subword_nmt_table -- allows to work with subword-nmt merge table
-BpeOnlineParallelApplier -- performs segmentation for parallel sentences
+* load_subword_nmt_table -- allows to work with subword-nmt merge table
+* BpeOnlineParallelApplier -- performs segmentation for parallel sentences
 
-Our method is implemented in other popular repositories:
-YouTokenToMe (https://github.com/VKCOM/YouTokenToMe) -- fastest bpe implementation
-Sentencepiece (https://github.com/google/sentencepiece) -- original subword regularization repository
-Subword-nmt (https://github.com/rsennrich/subword-nmt) -- original bpe repository
+### Other implementations:
+
+* [YouTokenToMe](https://github.com/VKCOM/YouTokenToMe) -- fastest bpe implementation
+* [Sentencepiece](https://github.com/google/sentencepiece) -- original subword regularization repository
+* [Subword-nmt](https://github.com/rsennrich/subword-nmt) -- original bpe repository
