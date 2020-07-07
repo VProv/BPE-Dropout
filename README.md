@@ -35,7 +35,7 @@ some example sentence to show s `eg `mentation
 * BpeOnlineParallelApplier -- performs segmentation for parallel sentences
 
 ### Other implementations
-
+The following repositories have implemented BPE-dropout
 * [YouTokenToMe](https://github.com/VKCOM/YouTokenToMe) -- fastest bpe implementation
 * [Sentencepiece](https://github.com/google/sentencepiece) -- original subword regularization repository
 * [Subword-nmt](https://github.com/rsennrich/subword-nmt) -- original bpe repository
