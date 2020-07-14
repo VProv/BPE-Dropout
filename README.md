@@ -17,7 +17,7 @@ subword_nmt_tokenizer = BpeOnlineTokenizer(
     merge_table=merge_table)
 
 for i in range(10):
-    print(subword_nmt_tokenizer("Some example sentence to show segmentation", 
+    print(subword_nmt_tokenizer("some example sentence to show segmentation", 
                                 sentinels=['', '</w>'],
                                 regime='end',
                                 bpe_symbol='@@'))
@@ -26,16 +26,16 @@ for i in range(10):
 Example output:
 
 ```
-S@@ ome ex@@ am@@ ple senten@@ ce t@@ o sh@@ ow seg@@ ment@@ ation
-S@@ ome exam@@ ple senten@@ ce to sh@@ ow seg@@ ment@@ ation
-S@@ ome ex@@ am@@ ple sen@@ te@@ nc@@ e to show seg@@ ment@@ ation
-S@@ ome exam@@ ple s@@ enten@@ ce to show seg@@ ment@@ ation
-S@@ ome exam@@ ple senten@@ ce to sh@@ ow seg@@ ment@@ ation
-S@@ ome exam@@ ple senten@@ ce t@@ o sho@@ w s@@ eg@@ ment@@ ation
-S@@ ome exam@@ ple senten@@ ce to s@@ how seg@@ m@@ ent@@ ation
-S@@ ome exam@@ ple senten@@ ce to show seg@@ ment@@ ation
-S@@ om@@ e exam@@ ple senten@@ ce to show se@@ g@@ ment@@ ation
-S@@ om@@ e exam@@ ple senten@@ ce to s@@ how seg@@ ment@@ ation
+some ex@@ ample sentence to show segmentation
+some exam@@ ple sentence to show segmentation
+so@@ me example sentence to show segmentation
+some ex@@ ample sentence to show segmentation
+some ex@@ ample sen@@ te@@ nce to show segmentation
+some example sentence to show segmentation
+some ex@@ ample sentence to show segmentation
+some example sen@@ tence to show seg@@ men@@ ta@@ tion
+some example sentence to s@@ how segmentation
+some example sen@@ tence t@@ o show segmentation
 ```
 
 With our merge table:
