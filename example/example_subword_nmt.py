@@ -1,7 +1,8 @@
-merge_table_path = './subword_nmt.voc'
-
+# make sure bpe from the root of the repository is in PYTHONPATH environment variable
+# or in the same directory to be able to import it
 from bpe import load_subword_nmt_table, BpeOnlineTokenizer
 
+merge_table_path = './subword_nmt.voc'
 merge_table = load_subword_nmt_table(merge_table_path)
 
 subword_nmt_tokenizer = BpeOnlineTokenizer(
