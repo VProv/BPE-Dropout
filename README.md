@@ -69,7 +69,7 @@ some example sentence to show s `eg `mentation
 
 Unfortunately, we do not provide code of building our merge table as it is internal.
 
-### Our algorithm should be applied on each new batch, or new epoch, to obtain multiple segmentations of the same sentence.
+#### Our algorithm should be applied on each new batch, or new epoch, to obtain multiple segmentations of the same sentence.
 
 ### Additional functions
 
