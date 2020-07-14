@@ -2,6 +2,44 @@
 An official implementation of "BPE-Dropout" algorithm, introduced in [BPE-Dropout: Simple and Effective Subword Regularization](https://www.aclweb.org/anthology/2020.acl-main.170/)
 
 ### Usage example
+
+With [Subword-nmt](https://github.com/rsennrich/subword-nmt) merge table:
+
+```
+merge_table_path = './example/subword_nmt.voc'
+
+from bpe import load_subword_nmt_table, BpeOnlineTokenizer
+
+merge_table = load_subword_nmt_table(merge_table_path)
+
+subword_nmt_tokenizer = BpeOnlineTokenizer(
+    bpe_dropout_rate=0.1, 
+    merge_table=merge_table)
+
+for i in range(10):
+    print(subword_nmt_tokenizer("Some example sentence to show segmentation", 
+                                sentinels=['', '</w>'],
+                                regime='end',
+                                bpe_symbol='@@'))
+```
+
+Example output:
+
+```
+S@@ ome ex@@ am@@ ple senten@@ ce t@@ o sh@@ ow seg@@ ment@@ ation
+S@@ ome exam@@ ple senten@@ ce to sh@@ ow seg@@ ment@@ ation
+S@@ ome ex@@ am@@ ple sen@@ te@@ nc@@ e to show seg@@ ment@@ ation
+S@@ ome exam@@ ple s@@ enten@@ ce to show seg@@ ment@@ ation
+S@@ ome exam@@ ple senten@@ ce to sh@@ ow seg@@ ment@@ ation
+S@@ ome exam@@ ple senten@@ ce t@@ o sho@@ w s@@ eg@@ ment@@ ation
+S@@ ome exam@@ ple senten@@ ce to s@@ how seg@@ m@@ ent@@ ation
+S@@ ome exam@@ ple senten@@ ce to show seg@@ ment@@ ation
+S@@ om@@ e exam@@ ple senten@@ ce to show se@@ g@@ ment@@ ation
+S@@ om@@ e exam@@ ple senten@@ ce to s@@ how seg@@ ment@@ ation
+```
+
+With our merge table:
+
 ```
 merge_table_path = './example/bpe.voc'
 
@@ -29,9 +67,12 @@ some example sen `ten `ce to show seg `mentation
 some example sentence to show s `eg `mentation
 ```
 
+Unfortunately, we do not provide code of building our merge table as it is internal.
+
+### Our algorithm should be applied on each new batch, or new epoch, to obtain multiple segmentations of the same sentence.
+
 ### Additional functions
 
-* load_subword_nmt_table -- allows to work with subword-nmt merge table
 * BpeOnlineParallelApplier -- performs segmentation for parallel sentences
 
 ### Other implementations
@@ -40,6 +81,9 @@ The following repositories have implemented BPE-dropout
 * [Sentencepiece](https://github.com/google/sentencepiece) -- original subword regularization repository
 * [Subword-nmt](https://github.com/rsennrich/subword-nmt) -- original bpe repository
 
+### Speed
+
+In order to achive high speed of segmentation you can either use faster implementation like [YouTokenToMe](https://github.com/VKCOM/YouTokenToMe), or use Python multiprocessing.
 
 ### Reference
 
