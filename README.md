@@ -1,9 +1,14 @@
 # BPE-Dropout
 An official implementation of "BPE-Dropout" algorithm, introduced in [BPE-Dropout: Simple and Effective Subword Regularization](https://www.aclweb.org/anthology/2020.acl-main.170/)
 
+### Introduction
+This repository contains a reference implementation of BPE-Dropout algorithm, which was used in the original paper itself. BPE merge table is required to run this algorithm. This repository does not contain the code for building the BPE merge table, relying on the external BPE merge table for the sake of simplicity. Note that BPE-dropout algorithm is already implemented in several most used packages that perform subword segmentation (see [Other Implementations](#other-implementations)). We encourage using these implementations over ours as they are used more commonly and thus are more thoroughly tested (especially considering that one would still require using them to build a BPE merge table). While using these, keep in mind, that our algorithm should be applied on each new batch, or new epoch, to obtain multiple segmentations of the same sentence.
+
 ### Usage example
 
-With [Subword-nmt](https://github.com/rsennrich/subword-nmt) merge table:
+BPE (and BPE-dropout inherits this) needs a merge table to operate. 
+For this example we will use a merge table, produced by 
+ [Subword-nmt](https://github.com/rsennrich/subword-nmt):
 
 ```
 merge_table_path = './example/subword_nmt.voc'
@@ -37,37 +42,6 @@ some example sen@@ tence to show seg@@ men@@ ta@@ tion
 some example sentence to s@@ how segmentation
 some example sen@@ tence t@@ o show segmentation
 ```
-
-With our merge table:
-
-```
-merge_table_path = './example/bpe.voc'
-
-from bpe import load_merge_table, BpeOnlineTokenizer
-
-merge_table = load_merge_table(merge_table_path)
-
-tokenizer = BpeOnlineTokenizer(bpe_dropout_rate=0.1, merge_table=merge_table)
-
-for i in range(10):
-    print(tokenizer("some example sentence to show segmentation"))
-```
-
-Example output:
-```
-som `e exam `ple s `ent `ence to sh `ow s `eg `mentation
-so `me example sentence to show seg `men `tation
-some example sentence to show se `g `mentation
-some example sentence to show seg `mentation
-some example sentence to s `h `ow s `eg `mentation
-some ex `am `ple s `ent `ence to show seg `mentation
-s `ome example sentence to show s `eg `men `tation
-some example sent `ence to show se `g `mentation
-some example sen `ten `ce to show seg `mentation
-some example sentence to show s `eg `mentation
-```
-
-Unfortunately, we do not provide code of building our merge table as it is internal.
 
 #### Our algorithm should be applied on each new batch, or new epoch, to obtain multiple segmentations of the same sentence.
 
