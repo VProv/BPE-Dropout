@@ -2,7 +2,9 @@
 An official implementation of "BPE-Dropout" algorithm, introduced in [BPE-Dropout: Simple and Effective Subword Regularization](https://www.aclweb.org/anthology/2020.acl-main.170/)
 
 ### Introduction
-This repository contains a reference implementation of BPE-Dropout algorithm, which was used in the original paper itself. BPE merge table is required to run this algorithm. This repository does not contain the code for building the BPE merge table, relying on the external BPE merge table for the sake of simplicity. Note that BPE-dropout algorithm is already implemented in several most used packages that perform subword segmentation (see [Other Implementations](#other-implementations)). We encourage using these implementations over ours as they are used more commonly and thus are more thoroughly tested (especially considering that one would still require using them to build a BPE merge table). While using these, keep in mind, that our algorithm should be applied on each new batch, or new epoch, to obtain multiple segmentations of the same sentence.
+This repository contains a reference implementation of BPE-Dropout algorithm, which was used in the original paper itself. BPE merge table is required to run this algorithm. This repository does not contain the code for building the BPE merge table, relying on the external BPE merge table for the sake of simplicity. Note that BPE-dropout algorithm is already implemented in several most used packages that perform subword segmentation (see [Other Implementations](#other-implementations)). We encourage using these implementations over ours as they are used more commonly and thus are more thoroughly tested (especially considering that one would still require using them to build a BPE merge table). 
+
+#### While using these, keep in mind, that our algorithm should be applied on each new batch, or new epoch, to obtain multiple segmentations of the same sentence.
 
 ### Usage example
 
@@ -43,7 +45,6 @@ some example sentence to s@@ how segmentation
 some example sen@@ tence t@@ o show segmentation
 ```
 
-#### Our algorithm should be applied on each new batch, or new epoch, to obtain multiple segmentations of the same sentence.
 
 ### Additional functions
 
