@@ -1,6 +1,8 @@
 # BPE-Dropout
 An official implementation of "BPE-Dropout" algorithm, introduced in [BPE-Dropout: Simple and Effective Subword Regularization](https://www.aclweb.org/anthology/2020.acl-main.170/)
 
+<img src="./example/segmentations.png" title="example">
+
 ### Introduction
 
 This repository contains a reference implementation of BPE-Dropout algorithm, which was used in the original paper. The repository does not contain the code for building a BPE merge table, relying on the external BPE merge table for the sake of simplicity. Note that BPE-dropout algorithm is already implemented in several most used packages that perform subword segmentation (see [Other Implementations](#other-implementations)). We encourage using these implementations as they provide merge table building and other useful features. 
