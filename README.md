@@ -3,7 +3,7 @@ An official implementation of "BPE-Dropout" algorithm, introduced in [BPE-Dropou
 
 ### Introduction
 
-This repository contains a reference implementation of BPE-Dropout algorithm, which was used in the original paper. This repository does not contain the code for building a BPE merge table, relying on the external BPE merge table for the sake of simplicity. Note that BPE-dropout algorithm is already implemented in several most used packages that perform subword segmentation (see [Other Implementations](#other-implementations)). We encourage using these implementations as they provide merge table building and other useful features. 
+This repository contains a reference implementation of BPE-Dropout algorithm, which was used in the original paper. The repository does not contain the code for building a BPE merge table, relying on the external BPE merge table for the sake of simplicity. Note that BPE-dropout algorithm is already implemented in several most used packages that perform subword segmentation (see [Other Implementations](#other-implementations)). We encourage using these implementations as they provide merge table building and other useful features. 
 
 #### While using these, keep in mind, that our algorithm should be applied on each new batch, or new epoch, to obtain multiple segmentations of the same sentence.
 
